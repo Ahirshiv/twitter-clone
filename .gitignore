@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+.vscode
+env/bin
+env/include
+env/lib
+env/.Python
