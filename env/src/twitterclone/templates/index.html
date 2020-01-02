@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div>
+        <strong>Follow your interests.</strong><br>
+        <strong>Hear what people are talking about</strong><br>
+        <strong>Join the conversation</strong><br>
+    </div>
+
+    <div>
+        <h2>See what's happening in the world right now</h2>
+        <strong>Join Twitter-Clone today.</strong>
+    </div>
+
+    <br>
+
+    <div>
+        <button><a href="{{ url_for('users.signup') }}">Sign Up</a></button>
+        <button><a href="{{ url_for('users.login') }}">Login In</a></button>
+    </div>
+{% endblock content %}
