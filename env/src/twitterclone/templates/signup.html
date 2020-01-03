@@ -2,4 +2,26 @@
 
 {% block content %}
     <h1>Sign Up</h1>
+
+    <!-- Signup form -->
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        
+        {{ form.name.label }}
+        {{ form.name }}
+        <br><br>
+        {{ form.username.label }}
+        {{ form.username }}
+        <br><br>
+        {{ form.email.label }}
+        {{ form.email }}
+        <br><br>
+        {{ form.password.label }}
+        {{ form.password }}
+        <br><br>
+        {{ form.confirm_password.label }}
+        {{ form.confirm_password }}
+        <br><br>
+        {{ form.submit }}
+    </form>
 {% endblock content %}

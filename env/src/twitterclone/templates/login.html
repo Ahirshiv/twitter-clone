@@ -2,4 +2,17 @@
 
 {% block content %}
     <h1>Log In</h1>
+
+    <!-- Login form -->
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        
+        {{ form.email.label }}
+        {{ form.email }}
+        <br><br>
+        {{ form.password.label }}
+        {{ form.password }}
+        <br><br>
+        {{ form.submit }}
+    </form>
 {% endblock content %}

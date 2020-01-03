@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2 style="text-align: center;">Welcome back!</h2>
+
+    <!-- Print all tweets -->
+    <h1>Latest Tweets</h1>
+    {% for tweet in tweets %}
+        <div>
+            <h3>{{ tweet.get('username') }}</h3>
+            <strong>Tweet: {{ tweet.get('tweet') }}</strong>
+            <br><br><hr>
+        </div>
+    {% endfor %}
+{% endblock content %}
