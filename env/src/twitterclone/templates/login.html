@@ -1,18 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>Log In</h1>
-
     <!-- Login form -->
-    <form action="" method="POST">
-        {{ form.hidden_tag() }}
-        
-        {{ form.email.label }}
-        {{ form.email }}
-        <br><br>
-        {{ form.password.label }}
-        {{ form.password }}
-        <br><br>
-        {{ form.submit }}
-    </form>
+    <div id="login-form">
+        <h2>Login to your account</h1>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class="form-control", id="exampleInputEmail1") }}
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class="form-control", id="exampleInputPassword1") }}
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                {{ form.remember(class="form-check-input", id="exampleCheck1") }}
+                {{ form.remember.label(class="form-check-label") }}
+            </div>
+                {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
 {% endblock content %}

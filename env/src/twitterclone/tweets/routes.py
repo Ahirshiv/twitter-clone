@@ -12,6 +12,10 @@ total_tweets = [
     {
         'username': 'YeshaPatel',
         'tweet': 'Hello Twitter-Clone users!'
+    },
+    {
+        'username': 'ShivAhir',
+        'tweet': 'I love programming. :)'
     }
 ]
 

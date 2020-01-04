@@ -1,0 +1,38 @@
+body {
+    margin: 10px;
+}
+
+#signup-btn-link {
+    color: white;
+}
+
+#login-btn-link:hover {
+    color: white;
+}
+
+#login-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#signup-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.left-side {
+    width: 50%;
+    float: left;
+    margin: 250px auto 250px auto;
+    text-align: center;
+}
+
+.right-side {
+    width: 50%;
+    float: right;
+    margin: 250px auto 250px auto;
+}
+
+.username {
+    color: rgb(32, 149, 228);
+}

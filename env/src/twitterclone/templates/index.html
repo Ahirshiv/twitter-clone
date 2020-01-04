@@ -1,21 +1,21 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div>
-        <strong>Follow your interests.</strong><br>
-        <strong>Hear what people are talking about</strong><br>
-        <strong>Join the conversation</strong><br>
+    <div class="left-side">
+        <strong>Follow your interests.</strong><br><br>
+        <strong>Hear what people are talking about</strong><br><br>
+        <strong>Join the conversation</strong><br><br>
     </div>
 
-    <div>
-        <h2>See what's happening in the world right now</h2>
-        <strong>Join Twitter-Clone today.</strong>
-    </div>
+    <div class="right-side">
+        <div>
+            <h3>See what's happening in<br>world right now</h3><br>
+            <strong>Join Twitter-Clone today.</strong>
+        </div><br>
 
-    <br>
-
-    <div>
-        <button><a href="{{ url_for('users.signup') }}">Sign Up</a></button>
-        <button><a href="{{ url_for('users.login') }}">Login In</a></button>
+        <div>
+            <button class="btn btn-primary"><a href="{{ url_for('users.signup') }}" id="signup-btn-link">Sign Up</a></button>
+            <button class="btn btn-outline-primary" ><a href="{{ url_for('users.login') }}" id="login-btn-link">Login In</a></button>
+        </div>
     </div>
 {% endblock content %}
