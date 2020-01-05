@@ -14,8 +14,13 @@
         </div><br>
 
         <div>
-            <button class="btn btn-primary"><a href="{{ url_for('users.signup') }}" id="signup-btn-link">Sign Up</a></button>
-            <button class="btn btn-outline-primary" ><a href="{{ url_for('users.login') }}" id="login-btn-link">Login In</a></button>
+            <form action="{{ url_for('users.signup') }}", method="POST">
+                <button class="btn btn-primary">Sign Up</button>
+            </form>
+            <br>
+            <form action="{{ url_for('users.login') }}", method="POST">
+                <button class="btn btn-outline-primary">Login In</button>
+            </form>
         </div>
     </div>
 {% endblock content %}

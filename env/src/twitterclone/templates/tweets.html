@@ -1,7 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h2 style="text-align: center; text-decoration: underline;">Welcome back!</h2><br>
+    {% if current_user.is_authenticated %}
+        <h2 style="text-align: center; text-decoration: underline;">Welcome back {{current_user.username}}!</h2><br>
+    {% endif %}
 
     <!-- Print all tweets -->
     {% for tweet in tweets %}
@@ -11,4 +13,10 @@
             <hr>
         </div>
     {% endfor %}
+    
+    {% if current_user.is_authenticated %}
+        <form action="{{ url_for('users.logout') }}">
+            <button class="btn btn-danger">Logout</button>
+        </form>
+    {% endif %}
 {% endblock content %}

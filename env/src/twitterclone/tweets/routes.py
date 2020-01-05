@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from flask_login import login_required
 
 tweets = Blueprint('tweets', __name__)
 
@@ -22,5 +23,6 @@ total_tweets = [
 
 # tweets route
 @tweets.route('/tweets')
+@login_required
 def tweet():
     return render_template('tweets.html', title='Tweets', tweets=total_tweets)

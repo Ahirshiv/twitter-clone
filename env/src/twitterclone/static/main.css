@@ -2,14 +2,6 @@ body {
     margin: 10px;
 }
 
-#signup-btn-link {
-    color: white;
-}
-
-#login-btn-link:hover {
-    color: white;
-}
-
 #login-form {
     width: 50%;
     margin: 0 auto;
