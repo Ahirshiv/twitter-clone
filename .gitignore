@@ -5,3 +5,5 @@ env/bin
 env/include
 env/lib
 env/.Python
+instance/
+.webassets-cache
