@@ -28,3 +28,7 @@ body {
 .username {
     color: rgb(32, 149, 228);
 }
+
+.profile-pic {
+    width: 35px;
+}
