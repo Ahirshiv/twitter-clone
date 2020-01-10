@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+        <h4>Name: <small>{{ current_user.name }}</small></h4>
+        <h4>Profile: <img class="rounded-circle article-img profile-pic-account" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"></h4>
+        <h4>Username: <small>{{ current_user.username }}</small></h4>
+        <h4>Email: <small>{{ current_user.email }}</small></h4>
+        <form action="#">
+            <button class="btn btn-primary">Update</button>
+        </form>
+    {% endif %}
+{% endblock content %}
