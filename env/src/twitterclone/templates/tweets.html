@@ -15,7 +15,7 @@
     <!-- Print all tweets -->
     {% for tweet in tweets %}
         <div>
-            <h4 class="username"><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"> {{ tweet.author.username }} </h4>
+            <h4 class="username"><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"> <a href="{{ url_for('tweets.user_tweets', username=tweet.author.username) }}">{{ tweet.author.username }}</a></h4>
             <small>Posted on: {{ tweet.date_posted.strftime('%Y-%m-%d') }}</small>
             <p><strong>Tweet: </strong>{{ tweet.tweet_content }}</p>
             <hr>

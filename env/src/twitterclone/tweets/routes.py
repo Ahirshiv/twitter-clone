@@ -2,28 +2,10 @@ from flask import Blueprint, render_template, redirect, url_for
 from flask_login import login_required
 from twitterclone.tweets.forms import TweetForm
 from twitterclone import db
-from twitterclone.models import Tweet
+from twitterclone.models import Tweet, User
 from flask_login import current_user
 
 tweets = Blueprint('tweets', __name__)
-
-
-# dummy tweets
-# total_tweets = [
-#     {
-#         'username': 'SatyamKY',
-#         'tweet': 'Twitter-Clone is awesome place for programmers! :)'
-#     },
-#     {
-#         'username': 'YeshaPatel',
-#         'tweet': 'Hello Twitter-Clone users!'
-#     },
-#     {
-#         'username': 'ShivAhir',
-#         'tweet': 'I love programming. :)'
-#     }
-# ]
-
 
 # tweets route
 @tweets.route('/tweets')
@@ -44,3 +26,10 @@ def new_tweet():
         db.session.commit()
         return redirect(url_for('tweets.tweet'))
     return render_template('new-tweet.html', title='New Tweet', form=form)
+
+# user tweet
+@tweets.route('/user-tweet/<string:username>')
+def user_tweets(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    tweets = Tweet.query.filter_by(author=user)
+    return render_template('user-tweets.html', title='User Tweets', tweets=tweets, user=user)
