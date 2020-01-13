@@ -1,9 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    {% if current_user.is_authenticated %}
-        <h2 style="text-align: center; text-decoration: underline;">Welcome back {{current_user.username}}! <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"></h2>
-    {% endif %}
+    <h5><strong>Home</strong></h5><hr>
 
     <form action="{{ url_for('tweets.new_tweet') }}", method="POST">
         <button class="btn btn-outline-primary">Tweet</button>
@@ -15,9 +13,8 @@
     <!-- Print all tweets -->
     {% for tweet in tweets %}
         <div>
-            <h4 class="username"><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"> <a href="{{ url_for('tweets.user_tweets', username=tweet.author.username) }}">{{ tweet.author.username }}</a></h4>
-            <small>Posted on: {{ tweet.date_posted.strftime('%Y-%m-%d') }}</small>
-            <p><strong>Tweet: </strong>{{ tweet.tweet_content }}</p>
+            <p><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"> <a class="a-name" href="{{ url_for('tweets.user_tweets', username=tweet.author.username) }}">{{ tweet.author.name }}</a> <small class="username">@{{ tweet.author.username }}</small> . <small>{{ tweet.date_posted.strftime('%Y-%m-%d') }}</small></p>
+            <p class="tweet-content">{{ tweet.tweet_content }}</p>
             <hr>
         </div>
     {% endfor %}

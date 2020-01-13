@@ -26,7 +26,20 @@ body {
 }
 
 .username {
-    color: rgb(32, 149, 228);
+    color: gray;
+}
+
+.a-name {
+    color: black;
+    font-weight: 500;
+}
+
+.tweet-content {
+    margin-left: 40px;
+}
+
+.a-name:hover {
+    color: black;
 }
 
 .profile-pic {
