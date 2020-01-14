@@ -5,4 +5,4 @@ from wtforms.validators import DataRequired
 
 class TweetForm(FlaskForm):
     tweet = TextAreaField('Tweet', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Tweet')
