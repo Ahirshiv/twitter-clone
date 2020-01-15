@@ -12,12 +12,17 @@
     <div>
         <form action="" method="POST">
             {{ form.hidden_tag() }}
-            <div class="form-group">
-                <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/') + current_user.image_file }}" alt="profile-image">
-                {{ form.tweet(class="form-control tweet-textarea", id="exampleFormControlTextarea1") }}
-            </div>
-            {{ form.submit(class="btn btn-primary") }}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/') + current_user.image_file }}" alt="profile-image">
+                  </span>
+                </div>
+                {{ form.tweet(class="form-control tweet-textarea", placeholder="What's happening") }}
+              </div><br>
+            <h5 style="text-align: right;">{{ form.submit(class="btn btn-primary") }}</h5>
         </form>
+        
     </div><hr>
 
     <!-- Print all tweets -->
