@@ -49,3 +49,12 @@ body {
 .profile-pic-account {
     width: 40px;
 }
+
+.svg {
+    color: rgb(105, 180, 228);
+}
+
+.svg:hover {
+    text-decoration: none;
+    color: rgb(105, 180, 228);
+}

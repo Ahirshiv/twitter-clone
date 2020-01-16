@@ -1,12 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h5><strong>Home</strong></h5>
     <h5>
-        <form action="{{ url_for('users.account') }}">
-            <button class="btn btn-primary">Account</button>
-        </form><br>
-    </h5><hr>
+        <strong>Home</strong>
+        <span style="position: absolute; right: 15px; top: 10px;">
+            <form action="{{ url_for('users.account') }}">
+                <button class="btn btn-primary">Account</button>
+            </form>
+        </span>
+    </h5><br>
+    <hr>
 
     <!-- New Tweet form -->
     <div>
@@ -19,10 +22,24 @@
                   </span>
                 </div>
                 {{ form.tweet(class="form-control tweet-textarea", placeholder="What's happening") }}
-              </div><br>
-            <h5 style="text-align: right;">{{ form.submit(class="btn btn-primary") }}</h5>
+            </div>
+            <a href="#" class="svg">
+                <span style="font-size: 25px;">
+                    <i class="far fa-image"></i>
+                </span>
+            </a>
+            <a href="#" class="svg">
+                <span style="font-size: 25px; margin-left: 10px;">
+                    <i class="far fa-chart-bar"></i>
+                </span>
+            </a>
+            <a href="#" class="svg">
+                <span style="font-size: 25px; margin-left: 10px;">
+                    <i class="far fa-smile"></i>
+                </span>
+            </a>
+            <span style="position: absolute; right: 15px; top: 170px;">{{ form.submit(class="btn btn-primary") }}</span>
         </form>
-        
     </div><hr>
 
     <!-- Print all tweets -->
