@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, url_for, redirect
 from twitterclone.users.forms import Signup, Login
 from twitterclone import db, bcrypt
-from twitterclone.models import User
-from flask_login import login_user, logout_user, login_required
+from twitterclone.models import User, Tweet
+from flask_login import login_user, logout_user, login_required, current_user
 
 users = Blueprint('users', __name__)
 
@@ -45,4 +45,6 @@ def logout():
 @users.route('/account')
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    user = User.query.filter_by(username=current_user.username).first_or_404()
+    tweets = user.tweets
+    return render_template('account.html', title='Account', tweets=tweets)

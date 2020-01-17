@@ -8,6 +8,14 @@
         <h4>Email: <small>{{ current_user.email }}</small></h4>
         <form action="#">
             <button class="btn btn-primary">Update</button>
-        </form>
+        </form><br>
+
+        {% for tweet in tweets %}
+            <div>
+                <p><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"> <a class="a-name" href="{{ url_for('tweets.user_tweets', username=tweet.author.username) }}">{{ tweet.author.name }}</a> <small class="username">@{{ tweet.author.username }}</small> . <small>{{ tweet.date_posted.strftime('%Y-%m-%d') }}</small></p>
+                <p class="tweet-content">{{ tweet.tweet_content }}</p>
+                <hr>
+            </div>
+        {% endfor %}
     {% endif %}
 {% endblock content %}

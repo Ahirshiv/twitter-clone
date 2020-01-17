@@ -1,13 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-        <h2>{{ user.username }} Tweets</h2><br>
-        <!-- Print all tweets -->
-        {% for tweet in tweets %}
+    <h4>Name: <small>{{ user.username }}</small></h4>
+    <h4>Profile: <img class="rounded-circle article-img profile-pic-account" src="{{ url_for('static', filename='profile-pictures/' + user.image_file) }}" alt="profile-image"></h4>
+    <h4>Username: <small>{{ user.username }}</small></h4><hr>
+
+    <h3>{{ user.username }} Tweets</h3><br>
+
+    <!-- Print all tweets -->
+    {% for tweet in tweets %}
         <div>
             <p><img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/' + current_user.image_file) }}" alt="profile-image"><strong class="a-name">{{ tweet.author.name }}</strong><small class="username">@{{ tweet.author.username }}</small> . <small>{{ tweet.date_posted.strftime('%Y-%m-%d') }} </small> </p>
             <p class="tweet-content">{{ tweet.tweet_content }}</p>
             <hr>
         </div>
     {% endfor %}
+
 {% endblock content %}

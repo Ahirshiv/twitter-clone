@@ -26,4 +26,6 @@ def tweet():
 def user_tweets(username):
     user = User.query.filter_by(username=username).first_or_404()
     tweets = Tweet.query.filter_by(author=user)
+    if user == current_user:
+        return redirect(url_for('users.account'))
     return render_template('user-tweets.html', title='User Tweets', tweets=tweets, user=user)
