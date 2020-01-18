@@ -58,3 +58,12 @@ body {
     text-decoration: none;
     color: rgb(105, 180, 228);
 }
+
+.svg-tweet {
+    color: gray;
+}
+
+.svg-tweet:hover {
+    text-decoration: none;
+    color: gray;
+}
