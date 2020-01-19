@@ -1,2 +1,2 @@
 # twitter-clone
-Learning flask
+Learning flask and web development!
