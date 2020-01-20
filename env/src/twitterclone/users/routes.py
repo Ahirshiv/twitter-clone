@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, redirect
-from twitterclone.users.forms import Signup, Login
+from twitterclone.users.forms import Signup, Login, UpdateAccount
 from twitterclone import db, bcrypt
 from twitterclone.models import User, Tweet
 from flask_login import login_user, logout_user, login_required, current_user
@@ -48,3 +48,17 @@ def account():
     user = User.query.filter_by(username=current_user.username).first_or_404()
     tweets = user.tweets
     return render_template('account.html', title='Account', tweets=tweets)
+
+
+# update account route
+@users.route('/update-account', methods=['GET', 'POST'])
+@login_required
+def update_account():
+    form = UpdateAccount()
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        return redirect(url_for('users.account'))
+    return render_template('update-account.html', title='Update Account', form=form)
