@@ -3,6 +3,7 @@ from twitterclone.users.forms import Signup, Login, UpdateAccount
 from twitterclone import db, bcrypt
 from twitterclone.models import User, Tweet
 from flask_login import login_user, logout_user, login_required, current_user
+from twitterclone.users.utils import save_picture
 
 users = Blueprint('users', __name__)
 
@@ -56,6 +57,9 @@ def account():
 def update_account():
     form = UpdateAccount()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
         current_user.name = form.name.data
         current_user.username = form.username.data
         current_user.email = form.email.data
