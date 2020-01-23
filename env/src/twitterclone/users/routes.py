@@ -63,6 +63,8 @@ def update_account():
         current_user.name = form.name.data
         current_user.username = form.username.data
         current_user.email = form.email.data
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        current_user.password = hashed_password
         db.session.commit()
         return redirect(url_for('users.account'))
     return render_template('update-account.html', title='Update Account', form=form)
