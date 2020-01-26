@@ -11,7 +11,8 @@ tweets = Blueprint('tweets', __name__)
 @tweets.route('/tweets', methods=['GET', 'POST'])
 @login_required
 def tweet():
-    tweets = Tweet.query.all()
+    tweets = Tweet.query.order_by(Tweet.date_posted.desc())
+    tweets.paginate()
     form = TweetForm()
     if form.validate_on_submit():
         tweet = Tweet(tweet_content=form.tweet.data, author=current_user)
@@ -25,7 +26,8 @@ def tweet():
 @tweets.route('/user-tweet/<string:username>')
 def user_tweets(username):
     user = User.query.filter_by(username=username).first_or_404()
-    tweets = Tweet.query.filter_by(author=user)
+    tweets = Tweet.query.filter_by(author=user).order_by(Tweet.date_posted.desc())
+    tweets.paginate()
     if user == current_user:
         return redirect(url_for('users.account'))
     return render_template('user-tweets.html', title='User Tweets', tweets=tweets, user=user)

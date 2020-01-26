@@ -47,7 +47,8 @@ def logout():
 @login_required
 def account():
     user = User.query.filter_by(username=current_user.username).first_or_404()
-    tweets = user.tweets
+    tweets = Tweet.query.filter_by(author=user).order_by(Tweet.date_posted.desc())
+    tweets.paginate()
     return render_template('account.html', title='Account', tweets=tweets)
 
 
