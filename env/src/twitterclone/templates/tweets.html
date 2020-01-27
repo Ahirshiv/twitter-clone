@@ -4,9 +4,9 @@
     <h5>
         <strong>Home</strong>
         <span style="position: absolute; right: 15px; top: 10px;">
-            <form action="{{ url_for('users.account') }}">
-                <button class="btn btn-primary">Account</button>
-            </form>
+            <a href="{{ url_for('users.account') }}">
+                <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/') + current_user.image_file }}" alt="Account">
+            </a>
         </span>
     </h5><br>
     <hr>
@@ -18,7 +18,7 @@
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/') + current_user.image_file }}" alt="profile-image">
+                    <img class="rounded-circle article-img profile-pic" src="{{ url_for('static', filename='profile-pictures/') + current_user.image_file }}" alt="Profile Image">
                   </span>
                 </div>
                 {{ form.tweet(class="form-control tweet-textarea", placeholder="What's happening") }}
